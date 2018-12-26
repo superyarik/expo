@@ -286,6 +286,8 @@ jobs:
       - yarn_install:
           working_directory: ~/project/tools-public
       - run: ~/project/tools-public/generate-files-ios.js
+      - run: mkdir -p ~/.expo
+      - run: direnv exec . bash -c 'echo $PATH' > ~/.expo/PATH
       - run:
           name: Build ios shell app simulator
           working_directory: ~/project/tools-public
