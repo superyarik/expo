@@ -286,15 +286,12 @@ jobs:
       - yarn_install:
           working_directory: ~/project/tools-public
       - run: ~/project/tools-public/generate-files-ios.js
-      - run: mkdir -p ~/.expo
-      - run: direnv exec . bash -c 'echo $PATH' > ~/.expo/PATH
+      - run: echo "--run.cwd ~/project/tools-public" > ~/.yarnrc
       - run:
           name: Build ios shell app simulator
           working_directory: ~/project/tools-public
           no_output_timeout: 30m
           command: nix run expo.procps --command gulp ios-shell-app --action build --type simulator --verbose true --skipRepoUpdate --shellAppSdkVersion UNVERSIONED
-      - store_artifacts:
-          path: ~/Library/Logs/fastlane/xcbuild
 
   android_test_suite:
     executor: android
