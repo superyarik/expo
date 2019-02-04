@@ -286,7 +286,7 @@ jobs:
       - yarn_install:
           working_directory: ~/project/tools-public
       - run: ~/project/tools-public/generate-files-ios.js
-      - run: echo "--run.cwd ~/project/tools-public" > ~/.yarnrc
+      - run: echo "--run.cwd ~/project/tools-public" >> ~/.yarnrc
       - run:
           name: Build ios shell app simulator
           working_directory: ~/project/tools-public
