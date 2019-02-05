@@ -286,8 +286,7 @@ jobs:
       - yarn_install:
           working_directory: ~/project/tools-public
       - run: ~/project/tools-public/generate-files-ios.js
-      - yarn_install:
-          working_directory: ~/project # TODO: make build run in shellAppWorkspaces use expo in tools-public
+      - run: echo "--run.cwd project/tools-public" >> ~/.yarnrc
       - run:
           name: Build ios shell app simulator
           working_directory: ~/project/tools-public
